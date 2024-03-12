@@ -9,7 +9,7 @@ const app = express();
 // Apply CORS middleware
 app.use(
   cors({
-    origin:"https://portfolio-bmx12eq0o-arti-s-projects.vercel.app", 
+    origin:"https://portfolio-henna-seven-79.vercel.app/", 
     methods: ['POST'], 
     credentials: true,
   })
