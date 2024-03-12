@@ -1,20 +1,20 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require("cors");
+const cors = require('cors'); // Import the cors package
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.json());
 
-// Apply CORS middleware
+// Use the CORS middleware
 app.use(
   cors({
-    origin:"https://portfolio-henna-seven-79.vercel.app/", 
+    origin: "https://portfolio-henna-seven-79.vercel.app", 
     methods: ['POST'], 
     credentials: true,
   })
 )
-app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
