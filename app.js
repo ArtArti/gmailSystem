@@ -9,8 +9,8 @@ const app = express();
 // Apply CORS middleware
 app.use(
   cors({
-    origin:["https://note-planner-client.vercel.app"], 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    origin:["https://portfolio-bmx12eq0o-arti-s-projects.vercel.app"], 
+    methods: ['POST'], 
     credentials: true,
   })
 )
