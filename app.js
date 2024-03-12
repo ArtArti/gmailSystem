@@ -1,5 +1,4 @@
 require('dotenv').config();
-const PORT = process.env.PORT || 3000;
 const express = require('express');
 const cors = require('cors'); // Import the cors package
 const nodemailer = require('nodemailer');
@@ -43,12 +42,7 @@ app.post('/api/send', async (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
-
-
-
+module.exports = app;
 
 
