@@ -14,7 +14,7 @@ app.use(
     methods: ['POST'], 
     credentials: true,
   })
-)
+);
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
