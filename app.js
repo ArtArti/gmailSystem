@@ -8,13 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Use the CORS middleware
-app.use(
-  cors({
-    origin:"https://portfolio-eta-topaz-86.vercel.app", 
-    methods: ['POST'], 
-    credentials: true,
-  })
-);
+app.use(cors());
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
