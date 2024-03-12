@@ -1,20 +1,20 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors'); // Import the cors package
+const cors = require("cors");
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.json());
 
-// Use the CORS middleware
+// Apply CORS middleware
 app.use(
   cors({
-    origin: "https://portfolio-henna-seven-79.vercel.app", 
-    methods: ['POST'], 
+    origin:["https://note-planner-client.vercel.app"], 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true,
   })
 )
+app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
