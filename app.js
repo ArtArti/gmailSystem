@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 // Use the CORS middleware
 app.use(
   cors({
-    origin: "https://portfolio-henna-seven-79.vercel.app", 
+    origin: ["https://portfolio-henna-seven-79.vercel.app/#contact"], 
     methods: ['POST'], 
     credentials: true,
   })
