@@ -2,9 +2,5 @@
   "version": 2,
   "builds": [
     { "src": "app.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/send", "dest": "/app.js" },
-    { "handle": "filesystem" }
   ]
 }
