@@ -8,11 +8,22 @@ const app = express();
 app.use(bodyParser.json());
 
 // Use the CORS middleware
-app.use(
-  cors({
-    origin: "https://portfolio-eta-topaz-86.vercel.app"
-  })
-)
+app.use((req, res, next) => {
+  // Allow requests from any origin
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  // Allow specified methods
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  // Allow specified headers
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // Allow credentials
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
