@@ -1,4 +1,5 @@
 require('dotenv').config();
+const PORT = process.env.PORT || 5000;
 const express = require('express');
 const cors = require('cors'); // Import the cors package
 const nodemailer = require('nodemailer');
@@ -8,22 +9,12 @@ const app = express();
 app.use(bodyParser.json());
 
 // Use the CORS middleware
-app.use((req, res, next) => {
-  // Allow requests from any origin
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  // Allow specified methods
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  // Allow specified headers
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  // Allow credentials
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
-});
+app.use(
+  cors({
+    origin: "https://portfolio-eta-topaz-86.vercel.app", 
+     methods: ['POST'],
+  })
+)
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -51,7 +42,8 @@ app.post('/api/send', async (req, res) => {
 });
 
 
-
-module.exports = app;
+app.listen(PORT, ()=>{
+  console.log(`server started at port http://localhost:${PORT}`);
+});
 
 
