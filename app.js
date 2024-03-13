@@ -14,7 +14,6 @@ app.use(
     methods: ['POST'],
   })
 )
-app.use(cors());
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
